@@ -32,18 +32,21 @@ return(
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="firstname"
                         placeholder="First Name" 
+                        data-testid="add-firstname-input"
                         onChange={(e)=>setFirstName(e.target.value)}/>
                      <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="lastname"
                         placeholder="Last Name" 
+                        data-testid="add-lastname-input"
                         onChange={(e)=>setLastName(e.target.value)}/>
                     <input 
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         placeholder="Email" 
+                        data-testid="add-email-input"
                         onChange={(e)=>setEmail(e.target.value)} />
 
                     <input 
@@ -51,12 +54,14 @@ return(
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="username"
                         placeholder="User Name"
+                        data-testid="add-username-input"
                         onChange={(e)=>setUserName(e.target.value)} />
                     <input 
                         type="password"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
                         placeholder="Password" 
+                        data-testid="add-password-input"
                         onChange={(e)=>setPassword(e.target.value)} />
 
 <button
