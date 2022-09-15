@@ -19,7 +19,7 @@ type ProductType = {
 }
 export const Home=()=>{
   const [open, setOpen] = useState(false)
-  
+  const [count,setCount]=useState(0)
   const [currentProduct,setProduct]=useState({id:"",title:"",price:0,description:"",image:""})
  
     const userLogin = useAppSelector(state => state.userLogin);
@@ -34,6 +34,7 @@ export const Home=()=>{
       console.log(currentProduct)
       setState("show");
       setOpen(true);
+      setCount(0);
     }
 
     const handleClose =() =>{
@@ -42,10 +43,19 @@ export const Home=()=>{
     }
     const handleAddToCart=(e:SyntheticEvent,product:{})=>{
            e.preventDefault();
-           dispatch(AddToCart(product));
+           dispatch(AddToCart(product,count));
            setOpen(false);
           setState("hide");
           dispatch(ShowCart());
+    }
+    const handleDecrement=(e:SyntheticEvent)=>{
+      e.preventDefault();
+      if(count>0)
+      setCount(count-1);
+    }
+    const handleIncrement=(e:SyntheticEvent)=>{
+      e.preventDefault();
+      setCount(count+1);
     }
     useEffect(()=>{
         dispatch(fetchallproducts());
@@ -122,17 +132,31 @@ export const Home=()=>{
                             </div>
                             <div>  <p className=" mt-4 text-2xl font-semibold text-gray-900">${currentProduct.price}</p></div>
                           
-                          
-    
-                            <button
-                              type="submit"
-                              onClick={(e)=>{handleAddToCart(e,currentProduct)}}
-                              className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-logo py-3 px-8 text-base font-medium text-white hover:bg-paleorange focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            >
-                              <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
-                              &nbsp;
-                              Add to Cart
-                            </button>
+                            <div className="flex space-x-3 mt-6">  
+    <div className="flex-2">      
+    <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
+    <button onClick={(e)=>{handleDecrement(e)}} className=" bg-gray-100 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
+      <span className="m-auto text-2xl font-thin text-logo">−</span>
+    </button>
+    <div className="outline-none focus:outline-none place-content-center bg-gray-100 w-full bg-gray-100 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none  ">{count}</div>
+    <button onClick={(e)=>{handleIncrement(e)}}  className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
+    <span className="m-auto text-2xl font-thin text-logo">+</span>
+  </button>
+</div></div>
+    <div className="flex-1">
+      <button
+         type="submit"
+          onClick={(e)=>{handleAddToCart(e,currentProduct)}}
+          className="flex w-full items-center justify-center rounded-md border border-transparent bg-logo py-3 px-8 text-base font-medium text-white hover:bg-paleorange focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+               <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                      &nbsp;
+                       Add to Cart
+            </button>
+            </div>
+</div>
+                     
+                            
                           </form>
                         </section>
                       </div>

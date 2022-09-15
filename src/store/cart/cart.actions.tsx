@@ -4,7 +4,8 @@ import {AnyAction} from 'redux';
 import { RootState } from "../store.js";
 export const AddToCart = 
     (
-       item:{}
+       item:{},
+       count:number
     ):ThunkAction<Promise<void>,RootState,unknown,AnyAction> =>
  async(
     dispatch:ThunkDispatch<RootState,unknown,AnyAction>)
@@ -19,7 +20,7 @@ try {
 
     dispatch({
         type:ADD_TO_CART_SUCCESS,
-        payload:item
+        payload:{item,count}
     })
 
 } catch (error) {

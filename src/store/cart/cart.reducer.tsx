@@ -19,11 +19,11 @@ const cartReducer=(state: CartState={items:[]} ,action: Action)=>{
        case ADD_TO_CART_START:
            return{...state,loading:true}
        case ADD_TO_CART_SUCCESS:
-           const incart=state.items.find((item:any) => item.id===action.payload.id)?true:false
+           const incart=state.items.find((item:any) => item.id===action.payload.item.id)?true:false
            console.log(incart)
            return{...state,loading:false,
-            items:incart?state.items.map((item:any)=>item.id ===action.payload.id?
-            {...item,qty:item.qty+1}:item) : [...state.items,{...action.payload,qty:1}],
+            items:incart?state.items.map((item:any)=>item.id ===action.payload.item.id?
+            {...item,qty:item.qty+action.payload.count}:item) : [...state.items,{...action.payload.item,qty:action.payload.count}],
             }
        case ADD_TO_CART_FAIL:
            return{loading:false,error:action.payload}
