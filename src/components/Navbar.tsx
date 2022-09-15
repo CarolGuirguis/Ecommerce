@@ -62,7 +62,7 @@ export const Navbar=() =>{
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                 <div  className="font-semibold text-2xl  ">sneakers</div>
+                 <div  className="font-bold text-2xl  ">sneakers</div>
                   
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -72,8 +72,8 @@ export const Navbar=() =>{
                         key={item.name}
                         onClick={(e:SyntheticEvent)=>submitHandler(e,item.name)}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium cursor-pointer'
+                          item.current ? 'bg-gray-900 text-white ' : ' font-normal text-[#7c8083] hover:underline decoration-logo underline-offset-8  hover:text-black',
+                          'px-3 py-2 rounded-md text-sm font-medium cursor-pointer '
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -97,7 +97,7 @@ export const Navbar=() =>{
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="flex rounded-full ring-2 ring-logo bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
@@ -174,6 +174,7 @@ export const Navbar=() =>{
         </>
       )}
     </Disclosure>
+    <hr/>
     {openc === true ? (
         <Cart/>
       ) : <></>}

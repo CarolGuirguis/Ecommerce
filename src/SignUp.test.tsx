@@ -6,7 +6,9 @@ import {Provider} from 'react-redux'
 import {SignUp} from './components/SignUp'
 import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import { useAppDispatch } from './hooks';
+import { useAppDispatch ,useAppSelector} from './hooks';
+import { signup } from './store/users/users.actions';
+import {createMemoryHistory} from 'history';
 
 const render = (component:any) => rtlRender(
     <Provider store={store}>
@@ -14,8 +16,10 @@ const render = (component:any) => rtlRender(
     </Provider>
 )
 describe('Sign Up', () =>{
-test('renders learn react link', () => {
+  
+test('testing', () => {
     window.history.pushState({},"","/")
+    
   render(
     <Router>  <SignUp /></Router>
   );
@@ -33,5 +37,8 @@ test('renders learn react link', () => {
   fireEvent.change(password, {target: {value: 'carolcarol'}});
   fireEvent.click(btn);
   
+ 
+ 
+
 });
 })

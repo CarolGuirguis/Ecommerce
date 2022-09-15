@@ -96,7 +96,7 @@ export const Home=()=>{
                         <img src={currentProduct.image} className="object-cover object-center" />
                       </div>
                       <div className="sm:col-span-8 lg:col-span-7">
-                      <h2 className="text-l font-bold text-red-900 sm:pr-12">Sneaker Company</h2>
+                      <h2 className="text-l font-semibold text-logo sm:pr-12">Sneaker Company</h2>
                         <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{currentProduct.title}</h2>
     
                         <section aria-labelledby="information-heading" className="mt-2">
@@ -104,9 +104,6 @@ export const Home=()=>{
                             Product information
                           </h3>
     
-                          <p className="text-2xl text-gray-900">${currentProduct.price}</p>
-    
-                          
                           
                         </section>
     
@@ -123,13 +120,14 @@ export const Home=()=>{
                             
                       
                             </div>
-    
+                            <div>  <p className=" mt-4 text-2xl font-semibold text-gray-900">${currentProduct.price}</p></div>
+                          
                           
     
                             <button
                               type="submit"
                               onClick={(e)=>{handleAddToCart(e,currentProduct)}}
-                              className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                              className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-logo py-3 px-8 text-base font-medium text-white hover:bg-paleorange focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                             >
                               <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
                               &nbsp;

@@ -2,7 +2,7 @@ import {SyntheticEvent,useState,useEffect} from 'react'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import {login} from '../store/users/users.actions';
 import { useNavigate } from "react-router-dom";
-
+import { LockClosedIcon } from '@heroicons/react/24/outline'
 export const Login=() =>{
     const[email,setEmail]=useState('')
     const[password,setPassword]=useState('')
@@ -79,7 +79,7 @@ return(
           </div>
 
           <div className="text-sm">
-            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="#" className="font-medium text-login hover:text-purple-700">
               Forgot your password?
             </a>
           </div>
@@ -89,10 +89,11 @@ return(
           <button
 
             type="submit"
-            className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            
+            className="group relative flex w-full rounded-md border border-transparent bg-login py-2 px-4 text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-login focus:ring-offset-2"
           >
-            Sign in
+             <LockClosedIcon className="h-6 w-6 text justify-left text-[#7800f3]" aria-hidden="true" />
+             <div className="group relative flex w-full justify-center mr-5"> Sign in</div>
+           
           </button>
         </div>
       </form>
