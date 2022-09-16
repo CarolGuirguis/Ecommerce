@@ -2,11 +2,12 @@ import { Navigate } from "react-router-dom";
 import { ShowCart } from '../store/cart/cart.actions';
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { useEffect, useState ,Fragment, SyntheticEvent} from "react";
-import { fetchallproducts } from "../store/products/products.actions";
+import { fetchallproducts,setCurrentProduct } from "../store/products/products.actions";
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XMarkIcon,ShoppingCartIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { AddToCart } from "../store/cart/cart.actions";
+import { ImagesPreview } from "./ImagesPreview";
 function classNames(...classes:any) {
   return classes.filter(Boolean).join(' ')
 }
@@ -28,13 +29,18 @@ export const Home=()=>{
     const dispatch= useAppDispatch()
     const { userInfo }=userLogin
     const productsarray:[{}]=products['data']
-    
+    const gallery=products['gallery'] 
     const handleClick=(product:{id:string,title:string,price:any,description:string,image:string})=>{
       setProduct(product);
       console.log(currentProduct)
       setState("show");
       setOpen(true);
       setCount(0);
+    }
+    const handleImagePreview =(id:string) =>{
+      console.log("gallery");
+      dispatch(setCurrentProduct(id));
+      
     }
 
     const handleClose =() =>{
@@ -64,7 +70,12 @@ export const Home=()=>{
     if(userInfo !== undefined && userInfo['firstName'] ){
     if(state==="show"){
       console.log(currentProduct.id)
+      
       return (
+        <>
+         {gallery === true ? (
+          <ImagesPreview/>
+        ) : <></>}
         <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
@@ -104,7 +115,7 @@ export const Home=()=>{
                     <div className="grid w-full grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
                       <div className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-white sm:col-span-4 lg:col-span-5">
                       
-                        <img src={currentProduct.image} className="object-cover object-center" />
+                        <img onClick={()=>{handleImagePreview(currentProduct.id)}} src={currentProduct.image} alt="image" className="object-cover object-center" />
                         
                         <div className=" hidden  md:grid grid-cols-4 gap-x-4 mt-6 lg:grid grid-cols-4 gap-x-4 mt-6">
                         <img src={currentProduct.image} className="object-cover object-center hover:border-2 border-logo" />
@@ -178,7 +189,7 @@ export const Home=()=>{
           </div>
         </Dialog>
       </Transition.Root>
-      
+      </>
       )
     }
     else{

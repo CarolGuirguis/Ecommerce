@@ -1,4 +1,4 @@
-import {FETCH_PRODUCTS_FAILURE,FETCH_PRODUCTS_SUCCESS,FETCH_PRODUCTS_START} from "./products.types";
+import {FETCH_PRODUCTS_FAILURE,FETCH_PRODUCTS_SUCCESS,FETCH_PRODUCTS_START,SET_CURRENT_PRODUCT_SUCCESS,REMOVE_CURRENT_PRODUCT_SUCCESS} from "./products.types";
 import {ThunkAction,ThunkDispatch} from 'redux-thunk';
 import {AnyAction} from 'redux';
 import { RootState } from "../store.js";
@@ -93,4 +93,51 @@ try {
     })
 }
 }
+export const setCurrentProduct = 
+    (
+       product:string
+    ):ThunkAction<Promise<void>,RootState,unknown,AnyAction> =>
+ async(
+    dispatch:ThunkDispatch<RootState,unknown,AnyAction>)
+    :Promise <void>=>{
+try {
+    
+  
+    
+    dispatch({
+        type:SET_CURRENT_PRODUCT_SUCCESS,
+        payload:product
+    })
 
+} catch (error) {
+    let message
+  if (error instanceof Error) message = error.message
+  else message = String(error)
+  console.log(message)
+   
+}
+}
+export const RemoveCurrentProduct = 
+    (
+       
+    ):ThunkAction<Promise<void>,RootState,unknown,AnyAction> =>
+ async(
+    dispatch:ThunkDispatch<RootState,unknown,AnyAction>)
+    :Promise <void>=>{
+try {
+    
+  
+    
+    dispatch({
+        type:REMOVE_CURRENT_PRODUCT_SUCCESS,
+        
+    })
+
+} catch (error) {
+    let message
+  if (error instanceof Error) message = error.message
+  else message = String(error)
+  console.log(message)
+   
+}
+}

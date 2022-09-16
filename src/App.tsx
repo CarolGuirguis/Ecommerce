@@ -14,7 +14,7 @@ function App() {
     <Router>
     <div className="App">
       <Navbar/>
-      <ImagesPreview/>
+     
     <Routes>
         <Route path="/" element={<SignUp/>}/>
         <Route path="/login" element={<Login />} />

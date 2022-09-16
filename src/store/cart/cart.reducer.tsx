@@ -30,9 +30,7 @@ const cartReducer=(state: CartState={items:[]} ,action: Action)=>{
            case REMOVE_FROM_CART_START:
             return{...state,loading:true}
         case REMOVE_FROM_CART_SUCCESS:
-            console.log(action.payload)
-             const f=state.items.filter((item:any)=>item.id!==action.payload)
-             console.log(f)
+           
             return{...state,
              loading:false,
             items:state.items.filter((item:any) =>item.id !== action.payload)}
