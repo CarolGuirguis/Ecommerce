@@ -9,6 +9,10 @@ module.exports = {
         'login':'#6a00e7',
         'logo':'#ff7d1a',
         'paleorange':'#ffede0'
+      },
+      screens:{
+        'sm': '375px',
+        'desktop': '1440px',
       }
     },
   

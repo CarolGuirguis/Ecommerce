@@ -49,12 +49,12 @@ export const Home=()=>{
           dispatch(ShowCart());
     }
     const handleDecrement=(e:SyntheticEvent)=>{
-      e.preventDefault();
+      e.preventDefault()
       if(count>0)
       setCount(count-1);
     }
     const handleIncrement=(e:SyntheticEvent)=>{
-      e.preventDefault();
+      e.preventDefault()
       setCount(count+1);
     }
     useEffect(()=>{
@@ -102,8 +102,18 @@ export const Home=()=>{
                     </button>
     
                     <div className="grid w-full grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
-                      <div className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
+                      <div className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-white sm:col-span-4 lg:col-span-5">
+                      
                         <img src={currentProduct.image} className="object-cover object-center" />
+                        
+                        <div className=" hidden  md:grid grid-cols-4 gap-x-4 mt-6 lg:grid grid-cols-4 gap-x-4 mt-6">
+                        <img src={currentProduct.image} className="object-cover object-center hover:border-2 border-logo" />
+                        <img src={currentProduct.image} className="object-cover object-center hover:border-2 border-logo" />
+                        <img src={currentProduct.image} className="object-cover object-center hover:border-2 border-logo" />
+                        <img src={currentProduct.image} className="object-cover object-center hover:border-2 border-logo" />
+                          
+                        </div>
+                        
                       </div>
                       <div className="sm:col-span-8 lg:col-span-7">
                       <h2 className="text-l font-semibold text-logo sm:pr-12">Sneaker Company</h2>
@@ -132,7 +142,7 @@ export const Home=()=>{
                             </div>
                             <div>  <p className=" mt-4 text-2xl font-semibold text-gray-900">${currentProduct.price}</p></div>
                           
-                            <div className="flex space-x-3 mt-6">  
+                            <div className="flex flex-col md:flex-row space-x-3 mt-6 ">  
     <div className="flex-2">      
     <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
     <button onClick={(e)=>{handleDecrement(e)}} className=" bg-gray-100 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
@@ -143,7 +153,7 @@ export const Home=()=>{
     <span className="m-auto text-2xl font-thin text-logo">+</span>
   </button>
 </div></div>
-    <div className="flex-1">
+    <div className="flex-1 mt-2 md:mt-0">
       <button
          type="submit"
           onClick={(e)=>{handleAddToCart(e,currentProduct)}}
@@ -179,7 +189,7 @@ export const Home=()=>{
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
          
   
-          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 md:grid-cols-4 xl:gap-x-8">
             {productsarray.map((product:any) => (
               <div key={product.id} className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-white-200  group-hover:opacity-75 lg:aspect-none lg:h-80 ">

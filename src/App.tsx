@@ -6,6 +6,7 @@ import {SignUp} from "./components/SignUp";
 import {Home} from "./components/Home";
 import {Navbar} from "./components/Navbar";
 import {Cart} from "./components/Cart";
+import {ImagesPreview} from "./components/ImagesPreview";
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Router>
     <div className="App">
       <Navbar/>
+      <ImagesPreview/>
     <Routes>
         <Route path="/" element={<SignUp/>}/>
         <Route path="/login" element={<Login />} />
