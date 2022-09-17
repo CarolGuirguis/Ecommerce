@@ -29,8 +29,9 @@ try {
         },
     })
     const data=await response.json();
-    console.log(data)
+    
     const userData={firstName:email}
+    
     dispatch({
         type:USER_LOGIN_SUCCESS,
         payload:userData

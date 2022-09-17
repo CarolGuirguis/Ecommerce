@@ -45,6 +45,7 @@ return(
               required
               className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="User Name"
+              data-testid="add-username-input"
               onChange={(e)=>setEmail(e.target.value)}
             />
           </div>
@@ -60,6 +61,7 @@ return(
               required
               className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Password"
+              data-testid="add-password-input"
               onChange={(e)=>setPassword(e.target.value)}
             />
           </div>
@@ -92,7 +94,7 @@ return(
             className="group relative flex w-full rounded-md border border-transparent bg-login py-2 px-4 text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-login focus:ring-offset-2"
           >
              <LockClosedIcon className="h-6 w-6 text justify-left text-[#7800f3]" aria-hidden="true" />
-             <div className="group relative flex w-full justify-center mr-5"> Sign in</div>
+             <div className="group relative flex w-full justify-center mr-5">Sign in</div>
            
           </button>
         </div>

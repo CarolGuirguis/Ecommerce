@@ -65,7 +65,7 @@ export const Home=()=>{
     }
     useEffect(()=>{
         dispatch(fetchallproducts());
-     } ,[])
+     } ,[userInfo])
 
     if(userInfo !== undefined && userInfo['firstName'] ){
     if(state==="show"){
@@ -194,6 +194,7 @@ export const Home=()=>{
     }
     else{
     if(productsarray){
+      console.log("hereproducts")
     return (
        
         <div className="bg-white">
@@ -235,8 +236,9 @@ export const Home=()=>{
         )
     }}}
     else{
+      
      return(
-        <Navigate replace to="/login" />
+        <></>
      )
 
     }
